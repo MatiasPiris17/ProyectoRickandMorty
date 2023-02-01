@@ -10,7 +10,7 @@ export default function Card(props) {
       <div className={styles.txt}>
         <Link to={`/detail/${props.id}`}>
           <h2>{props.name}</h2>
-        </Link>  
+        </Link>
           <h3>{props.species}</h3>
           <h3>{props.gender}</h3>
           <img src={props.image} alt="imagenPersonaje" />

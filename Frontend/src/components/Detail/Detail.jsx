@@ -26,7 +26,7 @@ export default function Detail() {
 
   return (
     <div>
-      <Link to="/Home">
+      <Link to="/home">
         <button>Home</button>
       </Link>
       <div className={styles.detail}>

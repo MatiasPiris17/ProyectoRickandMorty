@@ -1,0 +1,11 @@
+.Nav{
+    background-color: rgba(240, 248, 255, 0.176);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 3px solid rgb(158, 148, 148);
+    padding: 8px;
+    border-radius: 6px;
+    justify-content: flex-end;
+    
+}

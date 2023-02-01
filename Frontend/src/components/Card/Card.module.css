@@ -1,0 +1,17 @@
+.Card{
+    border: 8px solid  rgba(245, 235, 242, 0.181);
+    width: 22%;
+    border-radius: 6px;
+    padding: 2px;
+    margin: 8px;
+    background-color: rgba(63, 103, 155, 0.261);
+}
+
+img{
+    width: 100%;
+}
+
+.txt{
+    text-align: center;
+    color: white;
+}

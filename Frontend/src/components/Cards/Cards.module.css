@@ -1,0 +1,6 @@
+.Cards{
+    display: flex;
+    padding: 8px;
+    border: 3px solid rgba(255, 255, 255, 0.113);
+    border-radius: 4px;
+}

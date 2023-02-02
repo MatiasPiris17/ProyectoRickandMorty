@@ -10,6 +10,7 @@ export default function Nav(props) {
           <Link to="/"><button>LOGOUT</button></Link>
             <Link to="/about"><button>About</button></Link>
             <Link to="/home"><button>Home</button></Link>
+            <Link to="/favorites"><button>Favorites</button></Link>
           </div>
           <SearchBar onSearch={props.onSearch}/>
     </nav>

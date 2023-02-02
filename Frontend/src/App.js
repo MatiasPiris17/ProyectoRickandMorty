@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./App.module.css";
 import Cards from "./components/Cards/Cards";
 import Nav from "./components/Nav/Nav";
@@ -6,28 +6,28 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import Form from "./components/Form/Form";
-
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const location = useLocation();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
-  
-  const username = "matiaspi21@hotmail.com"
-  const password = "4445Mati"
+
+  const username = "matiaspi21@hotmail.com";
+  const password = "4445Mati";
 
   const login = (userData) => {
-    if(userData.username === username && userData.password === password){ 
+    if (userData.username === username && userData.password === password) {
       setAccess(true);
-      navigate("/home")
+      navigate("/home");
     }
-  }
+  };
 
   useEffect(() => {
-    !access && navigate('/');
- }, [access]);
+    !access && navigate("/");
+  }, [access]);
 
   function onSearch(id) {
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
@@ -55,16 +55,21 @@ function App() {
 
   return (
     <div className={styles.App}>
-      {location.pathname === '/' ? <Form login={login} /> : <Nav onSearch={onSearch} />}
+      {location.pathname === "/" ? (
+        <Form login={login} />
+      ) : (
+        <Nav onSearch={onSearch} />
+      )}
       {/* <Nav onSearch={onSearch} /> */}
-       <Routes>
-      {/* <Route exact path="/" element={<Form />}></Route>  */}
+      <Routes>
+        {/* <Route exact path="/" element={<Form />}></Route>  */}
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         ></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/detail/:detailId" element={<Detail />}></Route>
+        <Route path="/favorites" element={<Favorites />}></Route>
       </Routes>
     </div>
   );

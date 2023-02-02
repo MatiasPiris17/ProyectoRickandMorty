@@ -37,6 +37,7 @@ export default function Form({login }) {
       <label htmlFor="password">Password:</label>
       <input type="password" name="password" value={userData.password} onChange={handleInputChange} />
       {errors.password && <p>{errors.password}</p>}
+      
       <button>LOGIN</button>
     </form>
   );

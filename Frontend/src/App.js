@@ -30,7 +30,7 @@ function App() {
   }, [access]);
 
   function onSearch(id) {
-    fetch(`http://localhost:3001/rickandmorty/character/${id}`)
+    fetch(`http://localhost:3001/rickandmorty/onsearch/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {

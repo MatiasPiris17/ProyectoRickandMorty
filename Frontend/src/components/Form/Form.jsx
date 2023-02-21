@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import validation from "./Validation";
 
-export default function Form({login }) {
+export default function Form({ login }) {
   const [userData, setUserData] = useState({
     username: "",
     password: "",
@@ -12,33 +12,55 @@ export default function Form({login }) {
     password: "",
   });
 
-  const handleInputChange = (event)=>{
+  const handleInputChange = (event) => {
     setUserData({
+      ...userData,
+      [event.target.name]: event.target.value,
+    });
+    setErrors(
+      validation({
         ...userData,
-        [event.target.name]: event.target.value
-    })
-    setErrors(validation({
-        ...userData,
-        [event.target.name]: event.target.value
-    }))
-  }
+        [event.target.name]: event.target.value,
+      })
+    );
+  };
 
-  const handbleSubmit = (event)=>{
+  const handbleSubmit = (event) => {
     event.preventDefault();
-    login(userData)
-  }
+    login(userData);
+  };
 
   return (
     <form onSubmit={handbleSubmit}>
-      <label htmlFor="username">Username:</label>
-      <input type="text" name="username" value={userData.username} onChange={handleInputChange}/>
-        {errors.username && <p>{errors.username}</p>}
+      <div>
+      <label>matiaspi21@hotmail.com</label>
+      <br/>
+      <label>4445Mati</label>
+      </div>
+      <div>
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            name="username"
+            value={userData.username}
+            onChange={handleInputChange}
+          />
+          {errors.username && <p>{errors.username}</p>}
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            value={userData.password}
+            onChange={handleInputChange}
+          />
+          {errors.password && <p>{errors.password}</p>}
+        </div>
+          <button>LOGIN</button>
+      </div>
 
-      <label htmlFor="password">Password:</label>
-      <input type="password" name="password" value={userData.password} onChange={handleInputChange} />
-      {errors.password && <p>{errors.password}</p>}
-      
-      <button>LOGIN</button>
     </form>
   );
 }

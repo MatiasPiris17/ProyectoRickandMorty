@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 export default function Detail() {
   const { detailId } = useParams();
   const [character, setCharacter] = useState({});
-  console.log(detailId);
   useEffect(() => {
     fetch(`http://localhost:3001/rickandmorty/detail/${detailId}`)
       .then((response) => response.json())
